@@ -7,8 +7,6 @@ It calculates power (W), energy (kWh), and total cost (RM) based on user input.
 - Takes user input: Voltage (V), Current (A), and Rate (sen/kWh)
 - Calculates power, energy, and cost from 1 to 24 hours
 - Displays results in a table
-- Retains user input after submission
-- Clean responsive layout using Bootstrap 4
 
 ## How to Run
 1. Make sure PHP is installed
