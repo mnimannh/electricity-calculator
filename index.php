@@ -8,21 +8,25 @@
 <body class="bg-light">
 <div class="container mt-5">
     <h2 class="mb-4">Electricity Cost Calculator</h2>
-    <form method="post" class="card p-4">
-        <div class="form-group">
-            <label for="voltage">Voltage (V)</label>
-            <input type="number" step="any" name="voltage" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="current">Current (A)</label>
-            <input type="number" step="any" name="current" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="rate">Current Rate (sen/kWh)</label>
-            <input type="number" step="any" name="rate" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Calculate</button>
-    </form>
+<form method="post" class="card p-4">
+    <div class="form-group">
+        <label for="voltage">Voltage (V)</label>
+        <input type="number" step="any" name="voltage" class="form-control"
+               value="<?= isset($_POST['voltage']) ? htmlspecialchars($_POST['voltage']) : '' ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="current">Current (A)</label>
+        <input type="number" step="any" name="current" class="form-control"
+               value="<?= isset($_POST['current']) ? htmlspecialchars($_POST['current']) : '' ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="rate">Current Rate (sen/kWh)</label>
+        <input type="number" step="any" name="rate" class="form-control"
+               value="<?= isset($_POST['rate']) ? htmlspecialchars($_POST['rate']) : '' ?>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
+
 
     <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
         <?php
@@ -30,9 +34,9 @@
         $current = $_POST['current'];
         $rate_sen = $_POST['rate'];
 
-        $power = $voltage * $current; // in Watts
-        $power_kW = $power / 1000; // convert to kW
-        $rate_rm = $rate_sen / 100; // convert sen to RM
+        $power = $voltage * $current; 
+        $power_kW = $power / 1000; 
+        $rate_rm = $rate_sen / 100; 
         ?>
         <div class="card mt-4 p-4">
             <h4>Result Summary</h4>
